@@ -18,16 +18,16 @@
 		$name = $_POST['user_name'];
 		$age = $_POST['user_age'] ;
 		$message= "";
-		$class = "";
+		$isAllowed = false;
 		
 		
 		if($age >= 19){
 			$message = $name . " is Allowed to drink !";
-			$class= "alert alert-success";
+			$isAllowed = true;
 		}
 		else{
 			$message =  $name. " is Not Allowed";
-			$class= "alert alert-danger";
+			$isAllowed = false;
 		}
 	}
 	else{
@@ -49,9 +49,20 @@
 
 <div class="container">
 
-	 <div class="<?php  echo $class  ?>">
-		<?php echo $message ?>
-	</div>
+	<?php
+	
+		if($isAllowed == true){
+			
+			echo " <div class='alert alert-success'>". $message . " </div>";
+			
+		}
+		else{
+			echo " <div class='alert alert-danger'>". $message . " </div>";
+			
+		}
+	
+	
+	?>
   
   
   

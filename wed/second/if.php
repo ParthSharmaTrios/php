@@ -18,16 +18,16 @@
 		$name = $_POST['user_name'];
 		$age = $_POST['user_age'] ;
 		$message= "";
-		$class = "";
+		$isAllowed = false;
 		
 		
 		if($age >= 19){
 			$message = $name . " is Allowed to drink !";
-			$class= "alert alert-success";
+			$isAllowed = true;
 		}
 		else{
 			$message =  $name. " is Not Allowed";
-			$class= "alert alert-danger";
+			$isAllowed = false;
 		}
 	}
 	else{
@@ -49,9 +49,43 @@
 
 <div class="container">
 
-	 <div class="<?php  echo $class  ?>">
-		<?php echo $message ?>
-	</div>
+	<?php
+	
+		if($isAllowed == true){
+			
+	?>		
+		<div class="alert alert-success">
+			<?php echo $message ?>
+		</div>	
+		
+		<h1> Please fill this form</h1>
+		
+		<form action="/action_page.php">
+		  <div class="form-group">
+			<label for="email">Email address:</label>
+			<input type="email" class="form-control" id="email">
+		  </div>
+		  <div class="form-group">
+			<label for="pwd">Password:</label>
+			<input type="password" class="form-control" id="pwd">
+		  </div>
+		  <div class="checkbox">
+			<label><input type="checkbox"> Remember me</label>
+		  </div>
+		  <button type="submit" class="btn btn-default">Submit</button>
+	</form>
+		
+	<?php
+		}
+		else {
+	?>
+		<div class="alert alert-danger">
+			<?php echo $message ?>
+		</div>	
+		
+	<?php
+		}
+	?>
   
   
   

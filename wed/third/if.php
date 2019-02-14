@@ -23,11 +23,11 @@
 		
 		if($age >= 19){
 			$message = $name . " is Allowed to drink !";
-			$class= "alert alert-success";
+			$class = "alert alert-success";
 		}
 		else{
 			$message =  $name. " is Not Allowed";
-			$class= "alert alert-danger";
+			$class = "alert alert-danger";
 		}
 	}
 	else{
@@ -49,10 +49,9 @@
 
 <div class="container">
 
-	 <div class="<?php  echo $class  ?>">
+	 <div class="<?php echo $class ?>">
 		<?php echo $message ?>
 	</div>
-  
   
   
  
