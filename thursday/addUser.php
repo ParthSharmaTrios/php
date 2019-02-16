@@ -21,6 +21,7 @@
 		VALUES ('".$name."' ,'".$phone."', '".$email."' ,'".$pwd."' )";
 		
 		
+
 		
 	 
 	if( $connection->query($sql_query)== true )
