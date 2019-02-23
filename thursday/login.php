@@ -30,8 +30,11 @@
 		
 		while($data = $result->fetch_assoc()){
 			
+			
+			
 			$_SESSION["name"] = $data["name"];
 			$_SESSION["userEmail"] = $data["email"];
+			
 			
 		
 			header('Location: dashboard.php');
