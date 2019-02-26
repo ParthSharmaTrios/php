@@ -18,6 +18,12 @@ Route::get('/hello', function () {
 });
 
 
+
+Route::get('/post','PostsController@show');
+Route::get('/deletePost','PostsController@delete');
+
+
+
 Route::get('/add','PostsController@insertPost');
 
 

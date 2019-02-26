@@ -1,114 +1,43 @@
-<!doctype html>
-<html lang="{{ app()->getLocale() }}">
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Bootstrap Example</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+</head>
+<body>
 
-        <title>Laravel</title>
+<div class="container">
+    <h2>List of all Posts</h2>
 
-        <!-- Fonts -->
-        <link href="https://fonts.googleapis.com/css?family=Raleway:100,600" rel="stylesheet" type="text/css">
+    <table class="table table-bordered">
+        <thead>
+        <tr>
+            <th>id</th>
+            <th>Title</th>
+            <th>Descripton</th>
+            <th>Delete</th>
+        </tr>
+        </thead>
+        <tbody>
 
-        <!-- Styles -->
-        <style>
-            html, body {
-                background-color: #fff;
-                color: #636b6f;
-                font-family: 'Raleway', sans-serif;
-                font-weight: 100;
-                height: 100vh;
-                margin: 0;
-            }
+        @foreach($posts as $singlePost)
+            <tr>
+                <td>{{$singlePost->id}}</td>
+                <td><a href="/post?id={{$singlePost->id}}">{{$singlePost->title}}</a></td>
+                <td>{{$singlePost->description }}</td>
+                <td><a href="/post/{{$singlePost->id}}" class="btn btn-danger">Delete</a></td>
+            </tr>
 
-            .full-height {
-                height: 100vh;
-            }
+        @endforeach
 
-            .flex-center {
-                align-items: center;
-                display: flex;
-                justify-content: center;
-            }
+        </tbody>
+    </table>
 
-            .position-ref {
-                position: relative;
-            }
+</div>
 
-            .top-right {
-                position: absolute;
-                right: 10px;
-                top: 18px;
-            }
-
-            .content {
-                text-align: center;
-            }
-
-            .title {
-                font-size: 84px;
-            }
-
-            .links > a {
-                color: #636b6f;
-                padding: 0 25px;
-                font-size: 12px;
-                font-weight: 600;
-                letter-spacing: .1rem;
-                text-decoration: none;
-                text-transform: uppercase;
-            }
-
-            .m-b-md {
-                margin-bottom: 30px;
-            }
-        </style>
-    </head>
-    <body>
-        <div class="flex-center position-ref full-height">
-            @if (Route::has('login'))
-                <div class="top-right links">
-                    @if (Auth::check())
-                        <a href="{{ url('/home') }}">Home</a>
-                    @else
-                        <a href="{{ url('/login') }}">Login</a>
-                        <a href="{{ url('/register') }}">Register</a>
-                    @endif
-                </div>
-            @endif
-
-            <div class="content">
-
-
-
-                <table class="table">
-                    <thead>
-                    <tr>
-                        <th>id</th>
-                        <th>Title</th>
-                        <th>Descripton</th>
-                    </tr>
-                    </thead>
-                    <tbody>
-
-                    @foreach($posts as $singlePost)
-                        <tr>
-                            <td>{{$singlePost->id}}</td>
-                            <td>{{$singlePost->title}}</td>
-                            <td>{{$singlePost->description }}</td>
-
-                        </tr>
-
-                     @endforeach
-
-                    </tbody>
-                </table>
-
-
-
-
-
-            </div>
-        </div>
-    </body>
+</body>
 </html>

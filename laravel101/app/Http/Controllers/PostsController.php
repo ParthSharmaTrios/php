@@ -50,4 +50,29 @@ class PostsController extends Controller
 
         return view('welcome')->with('posts',$allPosts);
     }
+
+
+    public function show(){
+
+        $post_id = $_GET['id'];
+
+
+            $post = Post::find($post_id);
+
+
+
+        return view('showPost')->with('post',$post);
+    }
+
+    public function delete(){
+
+        $post_id = $_GET['id'];
+
+        Post::destroy($post_id);
+
+        Post::where('id',$post_id)->destroy();
+
+        return view('welcome');
+        return redirect()->back();
+    }
 }
