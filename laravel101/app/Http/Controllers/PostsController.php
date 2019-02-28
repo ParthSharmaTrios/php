@@ -75,4 +75,27 @@ class PostsController extends Controller
         return view('welcome');
         return redirect()->back();
     }
+
+    public function showUpdateView($id){
+
+        $post = Post::find($id);
+
+        return view('update')->with('post',$post);
+    }
+
+    public function update($id){
+
+        $title = $_POST['title'];
+        $desc = $_POST['desc'];
+
+        $post = Post::find($id);
+
+        $post->title = $title;
+        $post->description = $desc;
+
+        $post->save();
+
+        return redirect('/');
+
+    }
 }
