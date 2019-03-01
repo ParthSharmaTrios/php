@@ -21,6 +21,8 @@ Route::get('/hello', function () {
 
 Route::get('/post','PostsController@show');
 Route::get('/deletePost','PostsController@delete');
+
+
 Route::get('/update/{id}','PostsController@showUpdateView');
 Route::post('/update/{id}','PostsController@update');
 

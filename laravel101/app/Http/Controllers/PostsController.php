@@ -44,7 +44,9 @@ class PostsController extends Controller
 
     public function showPosts(){
 
-        $allPosts = Post::all();
+        $allPosts = Post::with('user')->get();
+
+
 
 
 

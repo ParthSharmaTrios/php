@@ -74,6 +74,8 @@
         <thead>
         <tr>
             <th>id</th>
+            <th>User</th>
+            <th>Email</th>
             <th>Title</th>
             <th>Descripton</th>
             <th>Delete</th>
@@ -83,8 +85,12 @@
         <tbody>
 
         @foreach($posts as $singlePost)
+
+
             <tr>
                 <td>{{$singlePost->id}}</td>
+                <td>{{$singlePost->user->name}}</td>
+                <td>{{$singlePost->user->email}}</td>
                 <td><a href="/post?id={{$singlePost->id}}">{{$singlePost->title}}</a></td>
                 <td>{{$singlePost->description }}</td>
 
